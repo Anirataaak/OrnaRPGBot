@@ -37,38 +37,62 @@ def heal():
         heal_with_potions()
 
 
+def fight(mob, image):
+    pyautogui.click(image)
+    time.sleep(0.5)
+    pyautogui.click(941, 641)
+    time.sleep(0.5)
+    _cannot_fight_ = pyautogui.locateOnScreen(r'bot\rsc\youMustWait.png', confidence=0.8)
+    if _cannot_fight_ is not None:
+        pyautogui.click(924, 982)
+        time.sleep(0.5)
+        mob.blocked = True
+        _cannot_fight_ = None
+    else:
+        while True:
+            pyautogui.click(317, 852)
+            time.sleep(0.5)
+            if checks.check_for_victory() == 'yes':
+                pyautogui.click(947, 912)
+                time.sleep(0.5)
+                break
+            elif checks.check_for_defeat() == 'yes':
+                mob.blocked = True
+                pyautogui.click(947, 912)
+                heal()
+                break
+
+
 index = 0
+mobIndex = 0
 while True:
-    if index == 2:
+    if index == 4:
         heal()
         index = 0
+    if mobIndex == 5:
+        checks.set_mobs_unblocked()
+        mobIndex = 0
+    time.sleep(1)
     _continue_ = pyautogui.locateOnScreen(r'bot\rsc\continue.png', confidence=0.8)
     if _continue_ is not None:
         pyautogui.click(_continue_)
         time.sleep(1)
         _continue_ = None
     else:
-        _image_ = checks.check_for_mobs()
-        if _image_ is not None:
+        mob = checks.check_for_mobs()
+        if mob is not None:
             index += 1
-            pyautogui.click(_image_)
-            time.sleep(0.5)
-            pyautogui.click(941, 641)
-            time.sleep(0.5)
-            _cannot_fight_ = pyautogui.locateOnScreen(r'bot\rsc\youMustWait.png', confidence=0.8)
-            if _cannot_fight_ is not None:
-                pyautogui.click(924, 982)
-                time.sleep(0.5)
-                _cannot_fight_ = None
-            else:
-                while True:
-                    pyautogui.click(317, 852)
-                    time.sleep(0.5)
-                    if checks.check_for_victory() == 'yes':
-                        pyautogui.click(947, 912)
-                        time.sleep(0.5)
-                        break
-                    elif checks.check_for_defeat() == 'yes':
-                        pyautogui.click(947, 912)
-                        heal()
-                        break
+            _image_left_ = pyautogui.locateOnScreen(mob.return_left_path(), confidence=0.7)
+            _image_right_ = pyautogui.locateOnScreen(mob.return_right_path(), confidence=0.7)
+            if _image_left_ is not None:
+                fight(mob, _image_left_)
+                mobIndex += 1
+                until = 5 - mobIndex
+                if until != 0:
+                    print('Fights until block resets ' + str(until))
+            elif _image_right_ is not None:
+                fight(mob, _image_right_)
+                mobIndex += 1
+                until = 5 - mobIndex
+                if until != 0:
+                    print('Fights until block resets ' + str(until))

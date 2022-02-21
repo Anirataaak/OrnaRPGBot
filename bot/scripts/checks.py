@@ -1,14 +1,27 @@
 import pyautogui
-from bot.scripts import mob
+from bot.scripts import mob as mobs
+
+
+def set_mobs_unblocked():
+    for mob in mobs.get_mobs():
+        mob.blocked = False
+    print('Resets block states')
 
 
 def check_for_mobs():
-    for monster in mob.get_mob_list():
-        print(monster)
-        _image_ = pyautogui.locateOnScreen(monster, confidence=0.5)
-        if _image_ is not None:
-            print(monster)
-            return _image_
+    for mob in mobs.get_mobs():
+        if not mob.blocked:
+            print('Searching for Mob: ' + mob.name)
+            _image_right_ = pyautogui.locateOnScreen(mob.return_right_path(), confidence=0.7)
+            _image_left_ = pyautogui.locateOnScreen(mob.return_left_path(), confidence=0.7)
+            if _image_right_ is not None:
+                print('Found Mob: ' + mob.name)
+                return mob
+            elif _image_left_ is not None:
+                print('Found Mob: ' + mob.name)
+                return mob
+        else:
+            print('Blocked Mob: ' + mob.name)
 
 
 def check_for_victory():
