@@ -30,16 +30,46 @@ def get_all_tier4():
     return mobList4
 
 
+def get_all_tier5():
+    mobList5 = []
+    for mob in mobs:
+        if mob.tier == tier5:
+            mobList5.append(mob)
+    return mobList5
+
+
+def get_all_tier6():
+    mobList6 = []
+    for mob in mobs:
+        if mob.tier == tier6:
+            mobList6.append(mob)
+    return mobList6
+
+
+def get_all_tier7():
+    mobList7 = []
+    for mob in mobs:
+        if mob.tier == tier7:
+            mobList7.append(mob)
+    return mobList7
+
+
 def get_mobs():
     mobList = []
-    for mob1 in get_all_tier4():
+    for mob1 in get_all_tier7():
         mobList.append(mob1)
-    for mob2 in get_all_tier3():
+    for mob2 in get_all_tier6():
         mobList.append(mob2)
-    for mob3 in get_all_tier2():
+    for mob3 in get_all_tier5():
         mobList.append(mob3)
-    for mob4 in get_all_tier1():
+    for mob4 in get_all_tier4():
         mobList.append(mob4)
+    for mob5 in get_all_tier3():
+        mobList.append(mob5)
+    for mob6 in get_all_tier2():
+        mobList.append(mob6)
+    for mob7 in get_all_tier1():
+        mobList.append(mob7)
     return mobList
 
 
@@ -74,9 +104,52 @@ tier1 = 'tier1'
 tier2 = 'tier2'
 tier3 = 'tier3'
 tier4 = 'tier4'
+tier5 = 'tier5'
+tier6 = 'tier6'
+tier7 = 'tier7'
+tier8 = 'tier8'
+tier9 = 'tier9'
+tier10 = 'tier10'
+tier11 = 'tier11'
+
+# Tier 11
+
+# Tier 10
+
+# Tier 9
+
+# Tier 8
+
+# Tier 7
+camazotz = Mob('camazotz', tier7)
+greatOrcMarauder = Mob('greatOrcMarauder', tier7)
+greatOrc = Mob('greatOrc', tier7)
+highFomorianMage = Mob('highFomorianMage', tier7)
+highFomorian = Mob('highFomorian', tier7)
+lostPharaoh = Mob('lostPharaoh', tier7)
+warg = Mob('warg', tier7)
+darkElfRogue = Mob('darkElfRogue', tier7)
+minotaur = Mob('minotaur', tier7)
+orcLord = Mob('orcLord', tier7)
+draconianLord = Mob('draconianLord', tier7)
+
+# Tier 6
+highDraconianMage = Mob('highDraconianMage', tier6)
+highDraconianWarrior = Mob('highDraconianWarrior', tier6)
+greatWyvern = Mob('greatWyvern', tier6)
+
+# Tier 5
+greatTroll = Mob('greatTroll', tier5)
+darkSlime = Mob('darkSlime', tier5)
+carrionCrow = Mob('carrionCrow', tier5)
+adamantineKnight = Mob('adamantineKnight', tier5)
+smallDragon = Mob('smallDragon', tier5)
 
 # Tier 4
-buried = Mob('buried', tier4)
+darkWidow = Mob('darkWidow', tier4)
+fomorianMage = Mob('fomorianMage', tier4)
+fomorianWarrior = Mob('fomorianWarrior', tier4)
+orcBrute = Mob('orcBrute', tier4)
 
 # Tier 3
 vileRat = Mob('vileRat', tier3)
@@ -96,6 +169,7 @@ hobgoblin = Mob('hobgoblin', tier3)
 greaterSnake = Mob('greaterSnake', tier3)
 mithrilArmor = Mob('mithrilArmor', tier3)
 draconianRogue = Mob('draconianRogue', tier3)
+buried = Mob('buried', tier3)
 
 # Tier 2
 livingArmor = Mob('livingArmor', tier2)
