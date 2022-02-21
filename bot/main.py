@@ -3,6 +3,8 @@ import os
 import pyautogui
 import time
 
+import test
+
 fileList = os.listdir(r'scripts\rsc\mobs')
 mobList = []
 
@@ -42,36 +44,42 @@ def locate_inn():
         return _inn_
 
 
-def use_potions():
+def heal_with_inn(_inn_):
+    pyautogui.click(_inn_)
+    time.sleep(1)
+    pyautogui.click(933, 248)
+    time.sleep(0.5)
+    pyautogui.mouseDown(948, 458)
+    time.sleep(1)
+    pyautogui.mouseUp()
+    time.sleep(4)
+    pyautogui.click(929, 975)
+
+
+def heal_with_potions():
+    time.sleep(0.5)
+    pyautogui.click(1074, 968)
+    pyautogui.mouseDown(1671, 371)
+    time.sleep(1)
+    pyautogui.mouseUp()
+    time.sleep(0.5)
+    pyautogui.click(924, 982)
+    time.sleep(0.5)
+
+
+def heal():
     _inn_ = locate_inn()
     if _inn_ is not None:
-        pyautogui.click(_inn_)
-        time.sleep(1)
-        pyautogui.click(933, 248)
-        time.sleep(0.5)
-        pyautogui.mouseDown(948, 458)
-        time.sleep(1)
-        pyautogui.mouseUp()
-        time.sleep(4)
-        pyautogui.click(929, 975)
+        heal_with_inn(_inn_)
     else:
-        time.sleep(0.5)
-        pyautogui.click(1074, 968)
-        pyautogui.mouseDown(1671, 371)
-        time.sleep(1)
-        pyautogui.mouseUp()
-        time.sleep(0.5)
-        pyautogui.click(924, 982)
-        time.sleep(0.5)
+        heal_with_potions()
 
 
 index = 0
-
-
 while True:
     index += 1
     if index is 3:
-        use_potions()
+        heal()
         index = 0
     _continue_ = pyautogui.locateOnScreen(r'scripts\rsc\continue.png', confidence=0.8)
     if _continue_ is not None:
@@ -98,5 +106,5 @@ while True:
                         break
                     elif check_for_defeat() == 'yes':
                         pyautogui.click(947, 912)
-                        use_potions()
+                        heal()
                         break
