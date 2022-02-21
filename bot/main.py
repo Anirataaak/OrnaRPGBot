@@ -3,12 +3,12 @@ import os
 import pyautogui
 import time
 
-fileList = os.listdir(r'scripts\rsc\mobs')
+fileList = os.listdir(r'bot\rsc\mobs')
 mobList = []
 
 for file in fileList:
     if file.endswith('.png') or file.endswith('.PNG'):
-        mobList.append(r'scripts\rsc\mobs\\' + file)
+        mobList.append(r'bot\rsc\mobs\\' + file)
 
 
 def check_for_mob():
@@ -21,7 +21,7 @@ def check_for_mob():
 
 
 def check_for_victory():
-    _victory_screen_ = pyautogui.locateOnScreen(r'scripts\rsc\victory.png', confidence=0.6)
+    _victory_screen_ = pyautogui.locateOnScreen(r'bot\rsc\victory.png', confidence=0.6)
     if _victory_screen_ is not None:
         return 'yes'
     else:
@@ -29,7 +29,7 @@ def check_for_victory():
 
 
 def check_for_defeat():
-    _defeat_screen_ = pyautogui.locateOnScreen(r'scripts\rsc\defeat.png', confidence=0.6)
+    _defeat_screen_ = pyautogui.locateOnScreen(r'bot\rsc\defeat.png', confidence=0.6)
     if _defeat_screen_ is not None:
         return 'yes'
     else:
@@ -37,7 +37,7 @@ def check_for_defeat():
 
 
 def locate_inn():
-    _inn_ = pyautogui.locateOnScreen(r'scripts\rsc\inn.png', confidence=0.6)
+    _inn_ = pyautogui.locateOnScreen(r'bot\rsc\inn.png', confidence=0.6)
     if _inn_ is not None:
         return _inn_
 
@@ -75,22 +75,22 @@ def heal():
 
 index = 0
 while True:
-    index += 1
-    if index is 3:
+    if index == 2:
         heal()
         index = 0
-    _continue_ = pyautogui.locateOnScreen(r'scripts\rsc\continue.png', confidence=0.8)
+    _continue_ = pyautogui.locateOnScreen(r'bot\rsc\continue.png', confidence=0.8)
     if _continue_ is not None:
         pyautogui.click(_continue_)
         time.sleep(1)
     else:
         _image_ = check_for_mob()
         if _image_ is not None:
+            index += 1
             pyautogui.click(_image_)
             time.sleep(0.5)
             pyautogui.click(941, 641)
             time.sleep(0.5)
-            _cannot_fight_ = pyautogui.locateOnScreen(r'scripts\rsc\youMustWait.png', confidence=0.8)
+            _cannot_fight_ = pyautogui.locateOnScreen(r'bot\rsc\youMustWait.png', confidence=0.8)
             if _cannot_fight_ is not None:
                 pyautogui.click(924, 982)
                 time.sleep(0.5)
