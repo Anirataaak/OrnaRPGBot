@@ -66,7 +66,7 @@ def fight(mob, image):
 index = 0
 mobIndex = 0
 while True:
-    if index == 3:
+    if index == 2:
         heal()
         index = 0
     if mobIndex == 8:
