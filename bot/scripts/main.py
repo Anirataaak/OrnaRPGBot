@@ -66,10 +66,10 @@ def fight(mob, image):
 index = 0
 mobIndex = 0
 while True:
-    if index == 4:
+    if index == 3:
         heal()
         index = 0
-    if mobIndex == 5:
+    if mobIndex == 8:
         checks.set_mobs_unblocked()
         mobIndex = 0
     time.sleep(1)
