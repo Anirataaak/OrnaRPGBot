@@ -75,10 +75,10 @@ tier2 = 'tier2'
 tier3 = 'tier3'
 tier4 = 'tier4'
 
-#Tier 4
+# Tier 4
 buried = Mob('buried', tier4)
 
-#Tier 3
+# Tier 3
 vileRat = Mob('vileRat', tier3)
 draugrMage = Mob('draugrMage', tier3)
 ogre = Mob('ogre', tier3)
@@ -86,8 +86,18 @@ blueFlame = Mob('blueFlame', tier3)
 greaterDemon = Mob('greaterDemon', tier3)
 greyWolfman = Mob('greyWolfman', tier3)
 lesserSluagh = Mob('lesserSluagh', tier3)
+hellhound = Mob('hellhound', tier3)
+evilEye = Mob('evilEye', tier3)
+jinn = Mob('jinn', tier3)
+livingArmor = Mob('livingArmor', tier3)
+zu = Mob('zu', tier3)
+draconianAcolyte = Mob('draconianAcolyte', tier3)
+hobgoblinMage = Mob('hobgoblinMage', tier3)
+golem = Mob('golem', tier3)
+hobgoblin = Mob('hobgoblin', tier3)
+greaterSnake = Mob('greaterSnake', tier3)
 
-#Tier 2
+# Tier 2
 bandit = Mob('bandit', tier2)
 bat = Mob('bat', tier2)
 brownSpider = Mob('brownSpider', tier2)
@@ -103,10 +113,13 @@ rat = Mob('rat', tier2)
 redSlime = Mob('redSlime', tier2)
 skeleton = Mob('skeleton', tier2)
 slime = Mob('slime', tier2)
-spider = Mob('spider', tier2)
+blackWidow = Mob('blackWidow', tier2)
 undead = Mob('undead', tier2)
 wolf = Mob('wolf', tier2)
 wolfman = Mob('wolfman', tier2)
+goblin = Mob('goblin', tier2)
+flame = Mob('flame', tier2)
 
-#Tier 1
+# Tier 1
 blueSlime = Mob('blueSlime', tier1)
+snake = Mob('snake', tier1)
