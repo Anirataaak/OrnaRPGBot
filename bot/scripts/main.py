@@ -37,6 +37,20 @@ def heal():
         heal_with_potions()
 
 
+def use_torch():
+    pyautogui.click(1065, 961)
+    time.sleep(0.5)
+    pyautogui.mouseDown(1673, 731)
+    pyautogui.moveTo(1665, 51)
+    time.sleep(1)
+    pyautogui.mouseUp()
+    time.sleep(0.5)
+    _torch_ = pyautogui.locateOnScreen(r'bot\rsc\torch.png', confidence=0.8)
+    pyautogui.click(_torch_)
+    time.sleep(0.5)
+    pyautogui.click(933, 974)
+
+
 def fight(mob, image):
     pyautogui.click(image)
     time.sleep(0.5)
@@ -65,14 +79,23 @@ def fight(mob, image):
 
 index = 0
 mobIndex = 0
+torchIndex = 0
 while True:
     if index == 2:
         heal()
         index = 0
+        print('Healing player')
+    time.sleep(1)
     if mobIndex == 8:
         checks.set_mobs_unblocked()
         mobIndex = 0
+        print('Resetting blocked mobs')
     time.sleep(1)
+    if torchIndex == 200:
+        use_torch()
+        torchIndex = 0
+        time.sleep(0.5)
+        print('Used torch')
     _continue_ = pyautogui.locateOnScreen(r'bot\rsc\continue.png', confidence=0.8)
     if _continue_ is not None:
         pyautogui.click(_continue_)
@@ -82,17 +105,29 @@ while True:
         mob = checks.check_for_mobs()
         if mob is not None:
             index += 1
-            _image_left_ = pyautogui.locateOnScreen(mob.return_left_path(), confidence=0.7)
-            _image_right_ = pyautogui.locateOnScreen(mob.return_right_path(), confidence=0.7)
+            if mob.name == 'twilightWisp':
+                _image_left_ = pyautogui.locateOnScreen(mob.return_left_path(), confidence=0.8)
+                _image_right_ = pyautogui.locateOnScreen(mob.return_right_path(), confidence=0.8)
+            else:
+                _image_left_ = pyautogui.locateOnScreen(mob.return_left_path(), confidence=0.7)
+                _image_right_ = pyautogui.locateOnScreen(mob.return_right_path(), confidence=0.7)
             if _image_left_ is not None:
                 fight(mob, _image_left_)
                 mobIndex += 1
-                until = 5 - mobIndex
+                torchIndex += 1
+                until = 8 - mobIndex
                 if until != 0:
-                    print('Fights until block resets ' + str(until))
+                    print(f'Fights until block resets {str(until)}')
+                untilTorch = 200 - torchIndex
+                if untilTorch != 0:
+                    print(f'Fights until uses torch {str(untilTorch)}')
             elif _image_right_ is not None:
                 fight(mob, _image_right_)
                 mobIndex += 1
-                until = 5 - mobIndex
+                torchIndex += 1
+                until = 8 - mobIndex
                 if until != 0:
-                    print('Fights until block resets ' + str(until))
+                    print(f'Fights until block resets {str(until)}')
+                untilTorch = 200 - torchIndex
+                if untilTorch != 0:
+                    print(f'Fights until uses torch {str(untilTorch)}')

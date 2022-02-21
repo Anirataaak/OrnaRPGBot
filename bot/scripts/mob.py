@@ -94,10 +94,10 @@ class Mob:
         mobs.add(self)
 
     def return_left_path(self):
-        return r'bot\\rsc\\mobs\\' + self.tier + r'\\' + self.name + r'left.png'
+        return fr'bot\\rsc\\mobs\\{self.tier}\\{self.name}left.png'
 
     def return_right_path(self):
-        return r'bot\\rsc\\mobs\\' + self.tier + r'\\' + self.name + r'right.png'
+        return fr'bot\\rsc\\mobs\\{self.tier}\\{self.name}right.png'
 
 
 tier1 = 'tier1'
@@ -132,11 +132,18 @@ darkElfRogue = Mob('darkElfRogue', tier7)
 minotaur = Mob('minotaur', tier7)
 orcLord = Mob('orcLord', tier7)
 draconianLord = Mob('draconianLord', tier7)
+twilightWisp = Mob('twilightWisp', tier7)
+fallenWanderer = Mob('fallenWanderer', tier7)
 
 # Tier 6
 highDraconianMage = Mob('highDraconianMage', tier6)
 highDraconianWarrior = Mob('highDraconianWarrior', tier6)
 greatWyvern = Mob('greatWyvern', tier6)
+ancientDraugrMage = Mob('ancientDraugrMage', tier6)
+ancientDraugr = Mob('ancientDraugr', tier6)
+gargoyle = Mob('gargoyle', tier6)
+basilisk = Mob('basilisk', tier6)
+greatUshiOni = Mob('greatUshiOni', tier6)
 
 # Tier 5
 greatTroll = Mob('greatTroll', tier5)
@@ -144,12 +151,18 @@ darkSlime = Mob('darkSlime', tier5)
 carrionCrow = Mob('carrionCrow', tier5)
 adamantineKnight = Mob('adamantineKnight', tier5)
 smallDragon = Mob('smallDragon', tier5)
+darkestDemon = Mob('darkestDemon', tier5)
+midnightImp = Mob('midnightImp', tier5)
+orcMarauder = Mob('orcMarauder', tier5)
+greaterCyclops = Mob('greaterCyclops', tier5)
 
 # Tier 4
 darkWidow = Mob('darkWidow', tier4)
 fomorianMage = Mob('fomorianMage', tier4)
 fomorianWarrior = Mob('fomorianWarrior', tier4)
 orcBrute = Mob('orcBrute', tier4)
+magmaGolem = Mob('magmaGolem', tier4)
+ghost = Mob('ghost', tier4)
 
 # Tier 3
 vileRat = Mob('vileRat', tier3)
@@ -170,6 +183,9 @@ greaterSnake = Mob('greaterSnake', tier3)
 mithrilArmor = Mob('mithrilArmor', tier3)
 draconianRogue = Mob('draconianRogue', tier3)
 buried = Mob('buried', tier3)
+fallenKnight = Mob('fallenKnight', tier3)
+skeletonWarrior = Mob('skeletonWarrior', tier3)
+vampire = Mob('vampire', tier3)
 
 # Tier 2
 livingArmor = Mob('livingArmor', tier2)
