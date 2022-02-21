@@ -3,8 +3,6 @@ import os
 import pyautogui
 import time
 
-import test
-
 fileList = os.listdir(r'scripts\rsc\mobs')
 mobList = []
 
