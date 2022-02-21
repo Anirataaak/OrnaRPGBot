@@ -1,7 +1,9 @@
 import pyautogui
 import time
 
-from bot.scripts import locate, checks
+from bot.scripts import locate, checks, mob
+
+playerTier = 'tier4'
 
 
 def heal_with_inn(_inn_):
@@ -44,8 +46,9 @@ while True:
     if _continue_ is not None:
         pyautogui.click(_continue_)
         time.sleep(1)
+        _continue_ = None
     else:
-        _image_ = checks.check_for_mob()
+        _image_ = checks.check_for_mobs()
         if _image_ is not None:
             index += 1
             pyautogui.click(_image_)
@@ -56,6 +59,7 @@ while True:
             if _cannot_fight_ is not None:
                 pyautogui.click(924, 982)
                 time.sleep(0.5)
+                _cannot_fight_ = None
             else:
                 while True:
                     pyautogui.click(317, 852)
