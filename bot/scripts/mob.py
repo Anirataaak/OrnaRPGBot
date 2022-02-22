@@ -144,6 +144,7 @@ ancientDraugr = Mob('ancientDraugr', tier6)
 gargoyle = Mob('gargoyle', tier6)
 basilisk = Mob('basilisk', tier6)
 greatUshiOni = Mob('greatUshiOni', tier6)
+frostTroll = Mob('frostTroll', tier6)
 
 # Tier 5
 greatTroll = Mob('greatTroll', tier5)
@@ -155,6 +156,8 @@ darkestDemon = Mob('darkestDemon', tier5)
 midnightImp = Mob('midnightImp', tier5)
 orcMarauder = Mob('orcMarauder', tier5)
 greaterCyclops = Mob('greaterCyclops', tier5)
+harpy = Mob('harpy', tier5)
+orgeBrute = Mob('orgeBrute', tier5)
 
 # Tier 4
 darkWidow = Mob('darkWidow', tier4)
@@ -163,6 +166,8 @@ fomorianWarrior = Mob('fomorianWarrior', tier4)
 orcBrute = Mob('orcBrute', tier4)
 magmaGolem = Mob('magmaGolem', tier4)
 ghost = Mob('ghost', tier4)
+drake = Mob('drake', tier4)
+yokai = Mob('yokai', tier4)
 
 # Tier 3
 vileRat = Mob('vileRat', tier3)
