@@ -3,8 +3,8 @@
 
 ### Requirements:
 * PyCharm IDE environment
-* Python pyautogui library
-* BlueStacks 4 with Orna RPG
+* Python interpreter 3.9
+* Python packages: opencv-python, pillow, pyautogui
 
 ### Features:
 * Automatic farming of mobs
