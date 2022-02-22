@@ -28,7 +28,7 @@ def searchForMobImage(mobList):
             print('Blocked Mob: ' + mob.name)
 
 
-def checkForMobs(tier):
+def checkForMobs(tier, playerTier):
     currentTier = tier
     while True:
         if currentTier == mobs.tier7:
@@ -72,7 +72,7 @@ def checkForMobs(tier):
             if image is not None:
                 return image, mobs.tier1
             else:
-                currentTier = mobs.tier7
+                currentTier = f'tier{playerTier}'
 
 
 def check_for_victory():

@@ -82,6 +82,8 @@ basilisk = Mob('basilisk', tier6)
 greatUshiOni = Mob('greatUshiOni', tier6)
 frostTroll = Mob('frostTroll', tier6)
 arcaneFlame = Mob('arcaneFlame', tier6).freeze = True
+highDraconianMystic = Mob('highDraconianMystic', tier6)
+orthrus = Mob('orthrus', tier6)
 
 # Tier 5
 greatTroll = Mob('greatTroll', tier5)
@@ -111,6 +113,7 @@ rottenSlime = Mob('rottenSlime', tier4)
 cobra = Mob('cobra', tier4)
 darkElf = Mob('darkElf', tier4)
 fairy = Mob('fairy', tier4)
+greaterVampire = Mob('greaterVampire', tier4)
 
 # Tier 3
 vileRat = Mob('vileRat', tier3)
