@@ -1,83 +1,17 @@
-def get_all_tier1():
-    mobList1 = []
+def getMobsByTier(tier):
+    mobList = []
+    print(f'Initializing {tier} mobs')
     for mob in mobs:
-        if mob.tier == tier1:
-            mobList1.append(mob)
-    return mobList1
-
-
-def get_all_tier2():
-    mobList2 = []
-    for mob in mobs:
-        if mob.tier == tier2:
-            mobList2.append(mob)
-    return mobList2
-
-
-def get_all_tier3():
-    mobList3 = []
-    for mob in mobs:
-        if mob.tier == tier3:
-            mobList3.append(mob)
-    return mobList3
-
-
-def get_all_tier4():
-    mobList4 = []
-    for mob in mobs:
-        if mob.tier == tier4:
-            mobList4.append(mob)
-    return mobList4
-
-
-def get_all_tier5():
-    mobList5 = []
-    for mob in mobs:
-        if mob.tier == tier5:
-            mobList5.append(mob)
-    return mobList5
-
-
-def get_all_tier6():
-    mobList6 = []
-    for mob in mobs:
-        if mob.tier == tier6:
-            mobList6.append(mob)
-    return mobList6
-
-
-def get_all_tier7():
-    mobList7 = []
-    for mob in mobs:
-        if mob.tier == tier7:
-            mobList7.append(mob)
-    return mobList7
+        if mob.tier == tier:
+            mobList.append(mob)
+    print(f'Successful initialized {tier} mobs')
+    return mobList
 
 
 def get_mobs():
     mobList = []
-    for mob1 in get_all_tier7():
-        mobList.append(mob1)
-    for mob2 in get_all_tier6():
-        mobList.append(mob2)
-    for mob3 in get_all_tier5():
-        mobList.append(mob3)
-    for mob4 in get_all_tier4():
-        mobList.append(mob4)
-    for mob5 in get_all_tier3():
-        mobList.append(mob5)
-    for mob6 in get_all_tier2():
-        mobList.append(mob6)
-    for mob7 in get_all_tier1():
-        mobList.append(mob7)
-    return mobList
-
-
-def get_mob_list():
-    mobList = []
-    for mob in get_mobs():
-        mobList.append(mob.return_right_path())
-        mobList.append(mob.return_left_path())
+    for mob in mobs:
+        mobList.append(mob)
     return mobList
 
 
@@ -91,6 +25,7 @@ class Mob:
         self.name = name
         self.tier = tier
         self.blocked = False
+        self.freeze = False
         mobs.add(self)
 
     def return_left_path(self):
@@ -134,6 +69,7 @@ orcLord = Mob('orcLord', tier7)
 draconianLord = Mob('draconianLord', tier7)
 twilightWisp = Mob('twilightWisp', tier7)
 fallenWanderer = Mob('fallenWanderer', tier7)
+redBasilisk = Mob('redBasilisk', tier7)
 
 # Tier 6
 highDraconianMage = Mob('highDraconianMage', tier6)
@@ -145,6 +81,7 @@ gargoyle = Mob('gargoyle', tier6)
 basilisk = Mob('basilisk', tier6)
 greatUshiOni = Mob('greatUshiOni', tier6)
 frostTroll = Mob('frostTroll', tier6)
+arcaneFlame = Mob('arcaneFlame', tier6).freeze = True
 
 # Tier 5
 greatTroll = Mob('greatTroll', tier5)
@@ -158,6 +95,8 @@ orcMarauder = Mob('orcMarauder', tier5)
 greaterCyclops = Mob('greaterCyclops', tier5)
 harpy = Mob('harpy', tier5)
 orgeBrute = Mob('orgeBrute', tier5)
+seer = Mob('seer', tier5)
+ushiOni = Mob('ushiOni', tier5)
 
 # Tier 4
 darkWidow = Mob('darkWidow', tier4)
@@ -168,6 +107,10 @@ magmaGolem = Mob('magmaGolem', tier4)
 ghost = Mob('ghost', tier4)
 drake = Mob('drake', tier4)
 yokai = Mob('yokai', tier4)
+rottenSlime = Mob('rottenSlime', tier4)
+cobra = Mob('cobra', tier4)
+darkElf = Mob('darkElf', tier4)
+fairy = Mob('fairy', tier4)
 
 # Tier 3
 vileRat = Mob('vileRat', tier3)
@@ -191,6 +134,7 @@ buried = Mob('buried', tier3)
 fallenKnight = Mob('fallenKnight', tier3)
 skeletonWarrior = Mob('skeletonWarrior', tier3)
 vampire = Mob('vampire', tier3)
+fallenWitch = Mob('fallenWitch', tier3)
 
 # Tier 2
 livingArmor = Mob('livingArmor', tier2)
@@ -214,10 +158,11 @@ undead = Mob('undead', tier2)
 wolf = Mob('wolf', tier2)
 wolfman = Mob('wolfman', tier2)
 goblin = Mob('goblin', tier2)
-flame = Mob('flame', tier2)
+flame = Mob('flame', tier2).freeze = True
 evilEye = Mob('evilEye', tier2)
 goblinWarrior = Mob('goblinWarrior', tier2)
 feralHorse = Mob('feralHorse', tier2)
+draconianMage = Mob('draconianMage', tier2)
 
 # Tier 1
 blueSlime = Mob('blueSlime', tier1)

@@ -19,14 +19,14 @@ def heal_with_inn(_inn_):
 
 
 def heal_with_potions():
-    time.sleep(0.5)
+    time.sleep(1)
     pyautogui.click(1074, 968)
     pyautogui.mouseDown(1671, 371)
     time.sleep(1)
     pyautogui.mouseUp()
-    time.sleep(0.5)
+    time.sleep(1)
     pyautogui.click(924, 982)
-    time.sleep(0.5)
+    time.sleep(1)
 
 
 def heal():
@@ -53,8 +53,9 @@ def use_torch():
 
 def fight(mob, image):
     pyautogui.click(image)
-    time.sleep(0.5)
-    pyautogui.click(941, 641)
+    time.sleep(1)
+    battle = pyautogui.locateOnScreen(r'bot\rsc\battle.png', confidence=0.8)
+    pyautogui.click(battle)
     time.sleep(0.5)
     _cannot_fight_ = pyautogui.locateOnScreen(r'bot\rsc\youMustWait.png', confidence=0.8)
     if _cannot_fight_ is not None:
@@ -64,24 +65,40 @@ def fight(mob, image):
         _cannot_fight_ = None
     else:
         while True:
-            pyautogui.click(317, 852)
-            time.sleep(0.5)
-            if checks.check_for_victory() == 'yes':
-                pyautogui.click(947, 912)
+            if not mob.freeze:
+                pyautogui.click(317, 852)
                 time.sleep(0.5)
-                break
-            elif checks.check_for_defeat() == 'yes':
-                mob.blocked = True
-                pyautogui.click(947, 912)
-                heal()
-                break
+                if checks.check_for_victory() == 'yes':
+                    pyautogui.click(947, 912)
+                    time.sleep(0.5)
+                    break
+                elif checks.check_for_defeat() == 'yes':
+                    mob.blocked = True
+                    pyautogui.click(947, 912)
+                    heal()
+                    break
+            else:
+                pyautogui.click(1500, 837)
+                time.sleep(0.5)
+                freeze = pyautogui.locateOnScreen(r'bot\rsc\freeze.png', confidence=0.8)
+                pyautogui.click(freeze)
+                if checks.check_for_victory() == 'yes':
+                    pyautogui.click(947, 912)
+                    time.sleep(0.5)
+                    break
+                elif checks.check_for_defeat() == 'yes':
+                    mob.blocked = True
+                    pyautogui.click(947, 912)
+                    heal()
+                    break
 
 
-index = 0
+index = 5
 mobIndex = 0
 torchIndex = 0
+currentTier = mob.tier7
 while True:
-    if index == 2:
+    if index == 5:
         heal()
         index = 0
         print('Healing player')
@@ -102,7 +119,7 @@ while True:
         time.sleep(1)
         _continue_ = None
     else:
-        mob = checks.check_for_mobs()
+        mob, currentTier = checks.checkForMobs(currentTier)
         if mob is not None:
             index += 1
             if mob.name == 'twilightWisp':
