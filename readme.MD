@@ -15,3 +15,5 @@
 ### Use:
 * BlueStacks with Orna RPG on full screen size (1920x1080).
 * Run in PyCharm main.py
+
+For any questions or support write an e-mail to: support@regitstudios.de
